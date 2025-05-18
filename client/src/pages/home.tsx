@@ -37,6 +37,19 @@ export function Home() {
 
   return (
     <>
+      {/* SEO Optimization */}
+      <Helmet>
+        <title>TheApexDev | Premium Web Development & Design Agency</title>
+        <meta name="description" content="Award-winning web development agency specializing in custom websites, e-commerce solutions, and digital experiences that inspire and transform businesses." />
+        <meta property="og:title" content="TheApexDev | Premium Web Development & Design Agency" />
+        <meta property="og:description" content="Award-winning web development agency specializing in custom websites, e-commerce solutions, and digital experiences that inspire and transform businesses." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://theapexdev.com" />
+      </Helmet>
+      
+      {/* Lead Form Overlay - appears after 10 seconds */}
+      <LeadFormOverlay delayInSeconds={10} />
+    <>
       {/* Hero Section - Simplified, Text-only Design */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-20">
         <div className="container mx-auto px-6 py-12 relative z-10">
