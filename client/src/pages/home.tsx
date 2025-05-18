@@ -49,7 +49,7 @@ export function Home() {
       
       {/* Lead Form Overlay - appears after 10 seconds */}
       <LeadFormOverlay delayInSeconds={10} />
-    <>
+      <ParticlesBackground />
       {/* Hero Section - Simplified, Text-only Design */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-20">
         <div className="container mx-auto px-6 py-12 relative z-10">
