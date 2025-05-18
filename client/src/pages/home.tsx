@@ -32,152 +32,113 @@ export function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center relative overflow-hidden pt-24">
-        <ParticlesBackground count={50} />
+      {/* Hero Section - Simplified, Text-only Design */}
+      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
         <div className="container mx-auto px-6 py-12 relative z-10">
-          <div className="flex flex-col md:flex-row items-center">
+          <motion.div
+            className="max-w-5xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Glowing circles for visual interest */}
             <motion.div 
-              className="w-full md:w-1/2 mb-12 md:mb-0"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              className="absolute w-96 h-96 rounded-full bg-violet-600/20 blur-3xl -top-20 -right-20 z-0"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.3, 0.2] 
+              }}
+              transition={{ 
+                duration: 8, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+            />
+            
+            <motion.div 
+              className="absolute w-80 h-80 rounded-full bg-pink-600/20 blur-3xl -bottom-20 -left-20 z-0"
+              animate={{ 
+                scale: [1, 1.3, 1],
+                opacity: [0.15, 0.25, 0.15] 
+              }}
+              transition={{ 
+                duration: 7, 
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            />
+
+            {/* Main heading with larger size */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
             >
-              <h1 className="text-4xl md:text-6xl font-outfit font-black leading-tight mb-6">
-                We Build <span className="gradient-text">Digital</span> Experiences That <span className="gradient-text">Inspire</span>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-outfit font-black leading-tight mb-8 tracking-tight">
+                <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">TheApex</span>
+                <span className="text-white">Dev</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl">
-                Your vision, our expertise. TheApexDev transforms ideas into cutting-edge web solutions that drive business growth.
-              </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                <Button 
-                  asChild
-                  size="lg" 
-                  className="bg-primary hover:bg-secondary text-white rounded-full shadow-lg shadow-primary/30"
-                >
-                  <Link href="/contact">
-                    <a>Start Your Project</a>
-                  </Link>
-                </Button>
-                <Button 
-                  asChild
-                  size="lg"
-                  variant="outline" 
-                  className="gradient-border bg-transparent rounded-full"
-                >
-                  <Link href="/services">
-                    <a>Explore Services</a>
-                  </Link>
-                </Button>
-              </div>
             </motion.div>
-            <motion.div 
-              className="w-full md:w-1/2 flex justify-center"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              {/* Logo Display Area with Animations */}
-              <div className="w-full h-[400px] md:h-[500px] rounded-2xl shadow-2xl shadow-primary/20 overflow-hidden relative bg-gradient-to-br from-[#10002b] via-[#240046] to-[#3c096c] flex flex-col items-center justify-center">
-                {/* Animated stars in background */}
-                <div className="absolute inset-0 overflow-hidden">
-                  {Array.from({ length: 50 }).map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 rounded-full bg-white"
-                      style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                        opacity: Math.random() * 0.7 + 0.3,
-                      }}
-                      animate={{
-                        opacity: [0.3, 0.8, 0.3],
-                        scale: [1, 1.2, 1],
-                      }}
-                      transition={{
-                        duration: 2 + Math.random() * 3,
-                        repeat: Infinity,
-                        delay: Math.random() * 2,
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Glowing circles */}
-                <motion.div 
-                  className="absolute w-64 h-64 rounded-full bg-violet-500/20 blur-3xl"
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.4, 0.3] 
-                  }}
-                  transition={{ 
-                    duration: 8, 
-                    repeat: Infinity,
-                    ease: "easeInOut" 
-                  }}
-                />
-                
-                {/* Logo with animation */}
-                <motion.div 
-                  className="scale-[2.5] mb-8 relative z-10"
-                  initial={{ scale: 2 }}
-                  animate={{ 
-                    scale: [2, 2.3, 2],
-                    y: [0, -10, 0]
-                  }}
-                  transition={{ 
-                    duration: 5, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <span className="text-7xl font-outfit font-black">
-                    <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">TheApex</span>
-                    <span className="text-white">Dev</span>
-                  </span>
-                </motion.div>
-                
-                {/* Tagline with fade-in animation */}
-                <motion.p 
-                  className="text-xl text-violet-200 max-w-sm text-center font-light mt-8 relative z-10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                >
-                  Crafting premium digital experiences
-                </motion.p>
-              </div>
-            </motion.div>
-          </div>
-          
-          <div className="mt-20 md:mt-32">
-            <motion.div 
-              className="flex flex-col items-center mb-14"
+            
+            <motion.h2 
+              className="text-3xl md:text-5xl font-outfit font-bold mb-10 leading-tight relative z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <h2 className="text-xl font-poppins font-semibold text-foreground/70 mb-8">Trusted by Innovative Brands</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 justify-items-center items-center">
-                {/* These would be actual client logos in a real implementation */}
-                <div className="h-8 w-24 bg-foreground/10 rounded-md animate-pulse"></div>
-                <div className="h-8 w-32 bg-foreground/10 rounded-md animate-pulse"></div>
-                <div className="h-8 w-24 bg-foreground/10 rounded-md animate-pulse"></div>
-                <div className="h-8 w-28 bg-foreground/10 rounded-md animate-pulse"></div>
-              </div>
+              We Build <span className="gradient-text">Digital</span> Experiences <br className="hidden md:block" />
+              That <span className="gradient-text">Inspire</span> & <span className="gradient-text">Transform</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-violet-200 mb-12 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              Your vision, our expertise. We create cutting-edge web solutions 
+              that elevate your brand and drive business growth.
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 relative z-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              <Button 
+                asChild
+                size="lg" 
+                className="bg-primary hover:bg-secondary text-white rounded-full shadow-lg shadow-primary/30 px-10 py-7 text-lg"
+              >
+                <Link href="/contact">
+                  <a>Start Your Project</a>
+                </Link>
+              </Button>
+              <Button 
+                asChild
+                size="lg"
+                variant="outline" 
+                className="gradient-border bg-transparent rounded-full px-10 py-7 text-lg"
+              >
+                <Link href="/services">
+                  <a>Explore Services</a>
+                </Link>
+              </Button>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
         
         <motion.div 
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
         >
           <Link href="#services">
-            <a className="flex flex-col items-center text-foreground/70 hover:text-foreground transition-colors duration-300">
-              <span className="text-sm font-poppins mb-2">Discover More</span>
+            <a className="flex flex-col items-center text-violet-300 hover:text-violet-100 transition-colors duration-300">
+              <span className="text-sm font-poppins mb-2">Discover Our Services</span>
               <motion.svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className="h-6 w-6" 
