@@ -34,15 +34,17 @@ export const SpaceBackground: React.FC<SpaceBackgroundProps> = ({
   }, [starCount]);
 
   return (
-    <div className={`fixed inset-0 w-full h-full overflow-hidden bg-black z-0 ${className}`}>
+    <div className={`fixed inset-0 w-full h-full overflow-hidden bg-black z-0 ${className}`} style={{ minHeight: '100vh', minWidth: '100vw', position: 'fixed' }}>
       {/* Space gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[#06021a] to-[#0e0538] opacity-90" />
       
       {/* Nebula effect */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-[10%] right-[15%] w-[50%] h-[50%] rounded-full bg-purple-500/20 blur-[120px]" />
-        <div className="absolute bottom-[20%] left-[15%] w-[40%] h-[30%] rounded-full bg-indigo-600/20 blur-[100px]" />
-        <div className="absolute top-[30%] left-[20%] w-[30%] h-[40%] rounded-full bg-violet-900/30 blur-[80px]" />
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-[10%] right-[15%] w-[50%] h-[50%] rounded-full bg-purple-500/30 blur-[120px]" />
+        <div className="absolute bottom-[20%] left-[15%] w-[40%] h-[30%] rounded-full bg-indigo-600/30 blur-[100px]" />
+        <div className="absolute top-[30%] left-[20%] w-[30%] h-[40%] rounded-full bg-violet-900/40 blur-[80px]" />
+        <div className="absolute bottom-[10%] right-[20%] w-[45%] h-[35%] rounded-full bg-fuchsia-800/30 blur-[90px]" />
+        <div className="absolute top-[60%] left-[40%] w-[30%] h-[25%] rounded-full bg-purple-700/25 blur-[70px]" />
       </div>
       
       {/* Stars */}
