@@ -39,7 +39,7 @@ export function ServiceCard({
       </div>
       <h3 className="text-xl font-poppins font-semibold mb-4">{title}</h3>
       <p className="text-muted-foreground mb-6">{description}</p>
-      <Link href="/contact">
+      <Link href={`/services/${serviceType}`}>
         <a className="flex items-center text-secondary hover:text-accent font-poppins font-medium transition-colors duration-300">
           Learn More
           <svg
