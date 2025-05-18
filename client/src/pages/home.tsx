@@ -8,6 +8,9 @@ import ProjectCard from "@/components/project-card";
 import TestimonialCard from "@/components/testimonial-card";
 import { Separator } from "@/components/ui/separator";
 import { RotatingObject3D } from "@/components/RotatingObject3D";
+import { LeadGenerationForm } from "@/components/LeadGenerationForm";
+import { LeadFormOverlay } from "@/components/LeadFormOverlay";
+import { Helmet } from "react-helmet";
 
 export function Home() {
   // Variants for staggered animations
@@ -29,6 +32,8 @@ export function Home() {
       transition: { duration: 0.6 }
     }
   };
+  
+  // Lead form overlay that appears after 10 seconds
 
   return (
     <>
