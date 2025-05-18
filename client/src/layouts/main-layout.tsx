@@ -4,7 +4,7 @@ import FloatingWhatsApp from "@/components/floating-whatsapp";
 import { Logo } from "@/components/logo";
 import { contactIcons, socialIcons } from "@/lib/utils";
 import { Link } from "wouter";
-import { StarryBackground } from "@/components/StarryBackground";
+import { SpaceBackground } from "@/components/SpaceBackground";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background/80 relative">
       {/* Starry background applied to the entire site */}
-      <StarryBackground starCount={2500} />
+      <SpaceBackground starCount={800} />
       
       {/* Main content with semi-transparent background for readability */}
       <div className="relative z-10">
