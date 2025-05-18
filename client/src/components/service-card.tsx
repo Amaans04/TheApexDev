@@ -32,8 +32,10 @@ export function ServiceCard({
       )}
       data-service={serviceType}
     >
-      <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6">
-        {icon}
+      <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+        <div className="w-7 h-7">
+          {icon}
+        </div>
       </div>
       <h3 className="text-xl font-poppins font-semibold mb-4">{title}</h3>
       <p className="text-muted-foreground mb-6">{description}</p>
