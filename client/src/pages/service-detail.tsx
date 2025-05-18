@@ -1,7 +1,7 @@
 
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
-import { servicesDetails } from '@/pages/services';
+import { servicesDetails } from '@/data/services-details';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import ParticlesBackground from '@/components/particles-background';
