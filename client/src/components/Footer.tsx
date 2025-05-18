@@ -52,15 +52,15 @@ const Footer = () => {
             <ul className="space-y-4 text-gray-400">
               <li className="flex items-center">
                 <i className="fas fa-envelope mr-3 text-primary"></i>
-                <span>hello@theapexdev.com</span>
+                <span>theapexdev.amaan@gmail.com</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone mr-3 text-primary"></i>
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9019850972</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-map-marker-alt mr-3 text-primary"></i>
-                <span>123 Tech Hub Street, San Francisco, CA</span>
+                <span>India, Banglore</span>
               </li>
             </ul>
           </div>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export function FloatingWhatsApp() {
   return (
     <motion.a
-      href="https://wa.me/1234567890"
+      href="https://wa.me/919019850972"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-50 whatsapp-button w-16 h-16 rounded-full flex items-center justify-center"

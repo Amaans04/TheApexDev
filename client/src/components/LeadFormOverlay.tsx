@@ -34,17 +34,17 @@ export function LeadFormOverlay({ delayInSeconds = 10 }: LeadFormOverlayProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={(e) => {
             if (e.target === e.currentTarget) handleClose();
           }}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
+            exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="bg-gradient-to-br from-[#10002b] via-[#240046] to-[#3c096c] rounded-xl shadow-2xl max-w-md w-full relative m-4"
+            className="bg-gradient-to-br from-[#10002b] via-[#240046] to-[#3c096c] rounded-xl shadow-2xl w-full max-w-md mx-auto my-4 overflow-y-auto max-h-[90vh]"
           >
             <LeadGenerationForm variant="overlay" onClose={handleClose} />
           </motion.div>

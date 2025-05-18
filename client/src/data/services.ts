@@ -1,38 +1,138 @@
+import { serviceIcons } from "@/lib/utils";
+
 export interface Service {
-  icon: string;
+  type: keyof typeof serviceIcons;
   title: string;
   description: string;
+  features: string[];
+  icon: React.ReactNode;
 }
 
 export const services: Service[] = [
   {
-    icon: "fa-search",
+    type: "seo",
     title: "SEO Optimization",
-    description: "Boost your online visibility with our comprehensive SEO strategies designed to rank higher in search results."
+    description: "Improve your website's visibility in search engines and drive organic traffic.",
+    features: [
+      "Keyword Research & Analysis",
+      "On-Page SEO Optimization",
+      "Technical SEO Audit",
+      "Content Strategy",
+      "Link Building",
+      "Performance Optimization"
+    ],
+    icon: serviceIcons.seo
   },
   {
-    icon: "fa-paint-brush",
+    type: "landing",
     title: "Landing Page Design",
-    description: "Convert visitors into customers with our high-converting, aesthetically pleasing landing page designs."
+    description: "Create high-converting landing pages that turn visitors into customers.",
+    features: [
+      "Conversion-Focused Design",
+      "A/B Testing",
+      "Mobile Optimization",
+      "Lead Generation Forms",
+      "Analytics Integration",
+      "Performance Optimization"
+    ],
+    icon: serviceIcons.landing
   },
   {
-    icon: "fa-code",
-    title: "Custom Web/App Development",
-    description: "Bespoke web applications and sites built with cutting-edge technologies for optimal performance."
+    type: "development",
+    title: "Web Development",
+    description: "Custom web development solutions tailored to your business needs.",
+    features: [
+      "Custom Website Development",
+      "E-commerce Solutions",
+      "CMS Development",
+      "API Integration",
+      "Database Design",
+      "Performance Optimization"
+    ],
+    icon: serviceIcons.development
   },
   {
-    icon: "fa-shopping-cart",
-    title: "E-Commerce Development",
-    description: "Full-featured online stores with secure payment gateways, inventory management, and customer analytics."
+    type: "ecommerce",
+    title: "E-commerce Solutions",
+    description: "Build powerful online stores that drive sales and growth.",
+    features: [
+      "Custom E-commerce Development",
+      "Payment Gateway Integration",
+      "Inventory Management",
+      "Order Processing",
+      "Customer Management",
+      "Analytics & Reporting"
+    ],
+    icon: serviceIcons.ecommerce
   },
   {
-    icon: "fa-sync",
+    type: "redesign",
     title: "Website Redesign",
-    description: "Transform outdated websites into modern, responsive platforms that align with current design standards."
+    description: "Transform your existing website into a modern, user-friendly platform.",
+    features: [
+      "UI/UX Redesign",
+      "Content Restructuring",
+      "Performance Optimization",
+      "Mobile Responsiveness",
+      "SEO Enhancement",
+      "Analytics Integration"
+    ],
+    icon: serviceIcons.redesign
   },
   {
-    icon: "fa-mobile-alt",
-    title: "Responsive Web Design",
-    description: "Create seamless experiences across all devices with our mobile-first responsive design approach."
+    type: "responsive",
+    title: "Responsive Design",
+    description: "Ensure your website looks and works perfectly on all devices.",
+    features: [
+      "Mobile-First Design",
+      "Cross-Device Testing",
+      "Touch Optimization",
+      "Performance Optimization",
+      "Responsive Images",
+      "Flexible Layouts"
+    ],
+    icon: serviceIcons.responsive
+  },
+  {
+    type: "marketing",
+    title: "Digital Marketing",
+    description: "Comprehensive digital marketing strategies to grow your business.",
+    features: [
+      "Social Media Marketing",
+      "Content Marketing",
+      "Email Marketing",
+      "PPC Advertising",
+      "Analytics & Reporting",
+      "Campaign Management"
+    ],
+    icon: serviceIcons.marketing
+  },
+  {
+    type: "support",
+    title: "Technical Support",
+    description: "24/7 technical support and maintenance for your website.",
+    features: [
+      "24/7 Support",
+      "Regular Maintenance",
+      "Security Updates",
+      "Performance Monitoring",
+      "Backup Management",
+      "Technical Documentation"
+    ],
+    icon: serviceIcons.support
+  },
+  {
+    type: "api",
+    title: "API Development",
+    description: "Build robust and scalable APIs for your applications.",
+    features: [
+      "RESTful API Design",
+      "GraphQL Development",
+      "API Documentation",
+      "Authentication & Security",
+      "Performance Optimization",
+      "Integration Support"
+    ],
+    icon: serviceIcons.api
   }
 ];

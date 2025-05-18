@@ -1,0 +1,124 @@
+{
+  "projects": [
+    {
+      "id": "ecommerce-platform",
+      "title": "Modern E-commerce Platform",
+      "description": "A full-featured e-commerce platform with real-time inventory management, secure payment processing, and advanced analytics.",
+      "category": "E-commerce",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
+      "image": "/projects/ecommerce-platform.jpg",
+      "features": [
+        "Real-time inventory tracking",
+        "Secure payment processing",
+        "Advanced analytics dashboard",
+        "Customer loyalty program",
+        "Mobile-responsive design",
+        "Multi-vendor support"
+      ],
+      "client": "Fashion Retailer",
+      "duration": "6 months",
+      "url": "https://example.com/ecommerce",
+      "github": "https://github.com/example/ecommerce"
+    },
+    {
+      "id": "healthcare-portal",
+      "title": "Healthcare Management Portal",
+      "description": "A comprehensive healthcare management system for patient records, appointments, and medical history tracking.",
+      "category": "Healthcare",
+      "technologies": ["Vue.js", "Python", "PostgreSQL", "Docker", "AWS"],
+      "image": "/projects/healthcare-portal.jpg",
+      "features": [
+        "Patient record management",
+        "Appointment scheduling",
+        "Medical history tracking",
+        "Secure data encryption",
+        "Telemedicine integration",
+        "Analytics dashboard"
+      ],
+      "client": "Medical Center",
+      "duration": "8 months",
+      "url": "https://example.com/healthcare",
+      "github": "https://github.com/example/healthcare"
+    },
+    {
+      "id": "real-estate-platform",
+      "title": "Real Estate Listing Platform",
+      "description": "An advanced real estate platform with property listings, virtual tours, and automated valuation tools.",
+      "category": "Real Estate",
+      "technologies": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "AWS"],
+      "image": "/projects/real-estate.jpg",
+      "features": [
+        "Property search and filtering",
+        "Virtual property tours",
+        "Automated valuation",
+        "Agent management",
+        "Lead tracking",
+        "Market analytics"
+      ],
+      "client": "Real Estate Agency",
+      "duration": "5 months",
+      "url": "https://example.com/realestate",
+      "github": "https://github.com/example/realestate"
+    },
+    {
+      "id": "education-platform",
+      "title": "Online Learning Platform",
+      "description": "A comprehensive e-learning platform with course management, student tracking, and interactive content delivery.",
+      "category": "Education",
+      "technologies": ["React", "Node.js", "MongoDB", "Socket.io", "AWS"],
+      "image": "/projects/education-platform.jpg",
+      "features": [
+        "Course management",
+        "Interactive lessons",
+        "Progress tracking",
+        "Live sessions",
+        "Assessment tools",
+        "Certificate generation"
+      ],
+      "client": "Educational Institute",
+      "duration": "7 months",
+      "url": "https://example.com/education",
+      "github": "https://github.com/example/education"
+    },
+    {
+      "id": "finance-dashboard",
+      "title": "Financial Analytics Dashboard",
+      "description": "A real-time financial analytics dashboard for tracking investments, market trends, and portfolio performance.",
+      "category": "Finance",
+      "technologies": ["React", "TypeScript", "D3.js", "Node.js", "MongoDB"],
+      "image": "/projects/finance-dashboard.jpg",
+      "features": [
+        "Real-time market data",
+        "Portfolio tracking",
+        "Investment analytics",
+        "Risk assessment",
+        "Custom reporting",
+        "API integrations"
+      ],
+      "client": "Investment Firm",
+      "duration": "4 months",
+      "url": "https://example.com/finance",
+      "github": "https://github.com/example/finance"
+    },
+    {
+      "id": "social-network",
+      "title": "Professional Social Network",
+      "description": "A professional networking platform with job matching, skill verification, and industry insights.",
+      "category": "Social",
+      "technologies": ["React", "GraphQL", "Node.js", "MongoDB", "Redis"],
+      "image": "/projects/social-network.jpg",
+      "features": [
+        "Professional profiles",
+        "Job matching",
+        "Skill verification",
+        "Industry insights",
+        "Networking tools",
+        "Event management"
+      ],
+      "client": "Tech Startup",
+      "duration": "9 months",
+      "url": "https://example.com/social",
+      "github": "https://github.com/example/social"
+    }
+  ]
+} 

@@ -1,260 +1,126 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card";
 import ParticlesBackground from "@/components/particles-background";
+import projectsData from "@/data/projects.json";
+import type { Project } from "@/types/project";
 
-export function Projects() {
-  const [filter, setFilter] = useState("all");
-  
-  const projects = [
-    {
-      id: 1,
-      imageUrl: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=380",
-      title: "LuxeMarket E-Commerce",
-      description: "Premium shopping experience with advanced filtering and payment solutions.",
-      technologies: ["React", "Node.js", "Stripe"],
-      category: "ecommerce"
-    },
-    {
-      id: 2,
-      imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=380",
-      title: "AnalyticsHub Dashboard",
-      description: "Real-time analytics platform with interactive data visualization.",
-      technologies: ["Vue.js", "D3.js", "Firebase"],
-      category: "web-app"
-    },
-    {
-      id: 3,
-      imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=380",
-      title: "NexaLaunch SaaS Platform",
-      description: "Conversion-optimized landing page with interactive features.",
-      technologies: ["GSAP", "React", "Tailwind"],
-      category: "landing-page"
-    },
-    {
-      id: 4,
-      imageUrl: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=380",
-      title: "FashionFirst Mobile App",
-      description: "Fashion e-commerce platform with AR try-on features.",
-      technologies: ["React Native", "Redux", "AR Kit"],
-      category: "ecommerce"
-    },
-    {
-      id: 5,
-      imageUrl: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=380",
-      title: "TaskFlow Management",
-      description: "Collaborative project management tool with real-time updates.",
-      technologies: ["Angular", "Socket.io", "MongoDB"],
-      category: "web-app"
-    },
-    {
-      id: 6,
-      imageUrl: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=380",
-      title: "GourmetGo Restaurant",
-      description: "Elegant restaurant website with booking system and menu showcase.",
-      technologies: ["Next.js", "Framer Motion", "Stripe"],
-      category: "landing-page"
-    }
-  ];
+const categories = ["All", "E-commerce", "Healthcare", "Real Estate", "Education", "Finance", "Social"];
 
-  const filteredProjects = filter === "all" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+export default function Projects() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const { projects } = projectsData;
 
-  const filterButtons = [
-    { id: "all", label: "All" },
-    { id: "ecommerce", label: "E-Commerce" },
-    { id: "web-app", label: "Web Apps" },
-    { id: "landing-page", label: "Landing Pages" }
-  ];
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
-        <ParticlesBackground count={30} />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1 
-              className="text-4xl md:text-6xl font-outfit font-black mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Our <span className="gradient-text">Projects</span>
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-muted-foreground mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Explore our portfolio of successful projects that demonstrate our expertise and creativity.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-6">
-          {/* Project Filters */}
-          <motion.div 
-            className="flex justify-center mb-12 flex-wrap"
+      <section className="relative py-20 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-center"
           >
-            {filterButtons.map(button => (
-              <Button
-                key={button.id}
-                onClick={() => setFilter(button.id)}
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Our Projects
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore our portfolio of innovative web solutions and digital experiences that have helped businesses achieve their goals.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Category Filter */}
+      <section className="py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
                 className={cn(
-                  "px-6 py-3 m-2 rounded-full transition-all duration-300",
-                  filter === button.id
-                    ? "bg-primary text-white shadow-lg shadow-primary/20"
-                    : "bg-background hover:bg-primary/80 text-foreground"
+                  "px-6 py-2 rounded-full text-sm font-medium transition-colors",
+                  selectedCategory === category
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted hover:bg-muted/80"
                 )}
               >
-                {button.label}
-              </Button>
+                {category}
+              </button>
             ))}
-          </motion.div>
-          
-          {/* Projects Grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            <AnimatePresence>
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                >
-                  <ProjectCard
-                    imageUrl={project.imageUrl}
-                    title={project.title}
-                    description={project.description}
-                    technologies={project.technologies}
-                    category={project.category}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-          
-          {filteredProjects.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
-              <p className="text-xl text-muted-foreground">No projects found in this category.</p>
-            </motion.div>
-          )}
+          </div>
         </div>
       </section>
 
-      {/* Project Process Section */}
-      <section className="py-16 md:py-24 bg-background/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <motion.h2 
-              className="text-3xl md:text-5xl font-outfit font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Our <span className="gradient-text">Process</span>
-            </motion.h2>
-            <motion.p 
-              className="text-lg text-muted-foreground max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              We follow a proven methodology to ensure every project is delivered with excellence.
-            </motion.p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Step 1 */}
-            <motion.div 
-              className="bg-background/70 backdrop-blur-sm rounded-xl p-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/30 to-secondary/10 rounded-bl-full"></div>
-              <div className="text-5xl font-outfit font-black mb-6 gradient-text">01</div>
-              <h3 className="text-xl font-poppins font-semibold mb-4">Discovery</h3>
-              <p className="text-muted-foreground z-10 relative">
-                We analyze your business needs, target audience, and project goals to create a comprehensive strategy.
-              </p>
-            </motion.div>
-            
-            {/* Step 2 */}
-            <motion.div 
-              className="bg-background/70 backdrop-blur-sm rounded-xl p-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/30 to-secondary/10 rounded-bl-full"></div>
-              <div className="text-5xl font-outfit font-black mb-6 gradient-text">02</div>
-              <h3 className="text-xl font-poppins font-semibold mb-4">Design</h3>
-              <p className="text-muted-foreground z-10 relative">
-                We create visually stunning, user-centric designs that align with your brand identity and business objectives.
-              </p>
-            </motion.div>
-            
-            {/* Step 3 */}
-            <motion.div 
-              className="bg-background/70 backdrop-blur-sm rounded-xl p-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/30 to-secondary/10 rounded-bl-full"></div>
-              <div className="text-5xl font-outfit font-black mb-6 gradient-text">03</div>
-              <h3 className="text-xl font-poppins font-semibold mb-4">Development</h3>
-              <p className="text-muted-foreground z-10 relative">
-                Our expert developers build your solution using cutting-edge technologies and best coding practices.
-              </p>
-            </motion.div>
-            
-            {/* Step 4 */}
-            <motion.div 
-              className="bg-background/70 backdrop-blur-sm rounded-xl p-8 relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/30 to-secondary/10 rounded-bl-full"></div>
-              <div className="text-5xl font-outfit font-black mb-6 gradient-text">04</div>
-              <h3 className="text-xl font-poppins font-semibold mb-4">Launch & Support</h3>
-              <p className="text-muted-foreground z-10 relative">
-                We ensure a smooth deployment and provide ongoing support to keep your digital presence at its best.
-              </p>
-            </motion.div>
+      {/* Projects Grid */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => (
+              <Link key={project.id} href={`/projects/${project.id}`}>
+                <a>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group relative overflow-hidden rounded-xl bg-card shadow-lg transition-all hover:shadow-xl cursor-pointer"
+                  >
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="mb-4">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary">
+                          {project.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-muted-foreground mb-4">{project.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 text-xs rounded bg-muted"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-primary group-hover:text-primary/80 transition-colors">
+                          View Details →
+                        </span>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <i className="fab fa-github text-xl" />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                </a>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
-
-export default Projects;

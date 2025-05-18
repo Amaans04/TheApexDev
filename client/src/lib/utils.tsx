@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import React from "react"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -16,14 +17,15 @@ export function getRandomFloat(min: number, max: number): number {
 
 // Icon utilities for services
 export const serviceIcons = {
-  seo: "fa-search",
-  design: "fa-paint-brush",
-  development: "fa-code",
-  ecommerce: "fa-shopping-cart",
-  redesign: "fa-sync",
-  responsive: "fa-mobile-alt",
-  marketing: "fa-bullhorn",
-  support: "fa-headset",
+  seo: <i className="fas fa-search text-2xl" />,
+  landing: <i className="fas fa-paint-brush text-2xl" />,
+  development: <i className="fas fa-code text-2xl" />,
+  ecommerce: <i className="fas fa-shopping-cart text-2xl" />,
+  redesign: <i className="fas fa-sync text-2xl" />,
+  responsive: <i className="fas fa-mobile-alt text-2xl" />,
+  marketing: <i className="fas fa-bullhorn text-2xl" />,
+  support: <i className="fas fa-headset text-2xl" />,
+  api: <i className="fas fa-plug text-2xl" />
 };
 
 // Contact page icon utilities
@@ -41,4 +43,4 @@ export const socialIcons = {
   github: "fab fa-github",
   facebook: "fab fa-facebook-f",
   youtube: "fab fa-youtube",
-};
+}; 

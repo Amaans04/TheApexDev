@@ -50,9 +50,15 @@ export function LeadGenerationForm({ variant = 'inline', onClose, className = ''
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // Here you would normally submit the form data to your backend
-      // For demonstration purposes, we'll just simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send data to Google Sheets
+      const response = await fetch('https://script.google.com/macros/s/AKfycby0LkOqW43RClWcDC_njP7IBaVjZb8T0Oz7QN-qhaX20JX2Ht4QAtWaWSu62pk0PFP7Kg/exec', {
+        method: 'POST',
+        mode: 'no-cors', // This is required for Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
       
       toast({
         title: "Success!",

@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import ParticlesBackground from "@/components/particles-background";
+import { LeadGenerationForm } from "@/components/LeadGenerationForm";
 
 // Form validation schema
 const formSchema = z.object({
@@ -114,101 +115,7 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-poppins">Your Name</FormLabel>
-                        <FormControl>
-                          <Input 
-                            placeholder="John Doe" 
-                            className="bg-background gradient-border" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-poppins">Email Address</FormLabel>
-                        <FormControl>
-                          <Input 
-                            placeholder="john@example.com" 
-                            className="bg-background gradient-border" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="projectType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-poppins">Project Type</FormLabel>
-                        <Select 
-                          onValueChange={field.onChange} 
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger className="bg-background gradient-border">
-                              <SelectValue placeholder="Select your project type" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-background border-border">
-                            <SelectItem value="web-development">Web Development</SelectItem>
-                            <SelectItem value="e-commerce">E-Commerce</SelectItem>
-                            <SelectItem value="landing-page">Landing Page</SelectItem>
-                            <SelectItem value="web-app">Web Application</SelectItem>
-                            <SelectItem value="redesign">Website Redesign</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground font-poppins">Your Message</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Tell us about your project..." 
-                            className="bg-background gradient-border" 
-                            rows={5}
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-primary hover:bg-secondary shadow-lg shadow-primary/30 rounded-lg font-poppins font-semibold"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </Form>
+              <LeadGenerationForm variant="contact" />
             </motion.div>
             
             <motion.div
@@ -226,7 +133,7 @@ export function Contact() {
                     </div>
                     <div>
                       <h4 className="font-poppins font-semibold mb-1">Email</h4>
-                      <a href="mailto:hello@theapexdev.com" className="text-muted-foreground hover:text-foreground transition-colors duration-300">hello@theapexdev.com</a>
+                      <a href="mailto:theapexdev.amaan@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors duration-300">theapexdev.amaan@gmail.com</a>
                     </div>
                   </div>
                   
@@ -236,7 +143,7 @@ export function Contact() {
                     </div>
                     <div>
                       <h4 className="font-poppins font-semibold mb-1">Phone</h4>
-                      <a href="tel:+1234567890" className="text-muted-foreground hover:text-foreground transition-colors duration-300">+1 (234) 567-890</a>
+                      <a href="tel:+919019850972" className="text-muted-foreground hover:text-foreground transition-colors duration-300">+91 90198 50972</a>
                     </div>
                   </div>
                   
@@ -246,7 +153,7 @@ export function Contact() {
                     </div>
                     <div>
                       <h4 className="font-poppins font-semibold mb-1">Location</h4>
-                      <p className="text-muted-foreground">123 Innovation Street, Tech City, 12345</p>
+                      <p className="text-muted-foreground">Bangalore, Karnataka, India</p>
                     </div>
                   </div>
                 </div>
@@ -256,11 +163,21 @@ export function Contact() {
                 <h3 className="text-2xl font-poppins font-semibold mb-6">Connect With Us</h3>
                 <div className="flex space-x-4">
                   <a 
+                    href="https://wa.me/919019850972" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors duration-300"
+                    aria-label="WhatsApp"
+                  >
+                    <i className="fab fa-whatsapp text-xl"></i>
+                  </a>
+                  
+                  <a 
                     href="#" 
                     className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors duration-300"
                     aria-label="Facebook"
                   >
-                    {socialIcons.facebook}
+                    <i className="fab fa-facebook-f text-xl"></i>
                   </a>
                   
                   <a 
@@ -268,7 +185,7 @@ export function Contact() {
                     className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors duration-300"
                     aria-label="Twitter"
                   >
-                    {socialIcons.twitter}
+                    <i className="fab fa-twitter text-xl"></i>
                   </a>
                   
                   <a 
@@ -276,7 +193,7 @@ export function Contact() {
                     className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors duration-300"
                     aria-label="LinkedIn"
                   >
-                    {socialIcons.linkedin}
+                    <i className="fab fa-linkedin-in text-xl"></i>
                   </a>
                   
                   <a 
@@ -284,18 +201,9 @@ export function Contact() {
                     className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors duration-300"
                     aria-label="Instagram"
                   >
-                    {socialIcons.instagram}
+                    <i className="fab fa-instagram text-xl"></i>
                   </a>
                 </div>
-              </div>
-              
-              {/* Office Image */}
-              <div className="mt-12 rounded-xl overflow-hidden shadow-xl shadow-primary/20">
-                <img 
-                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
-                  alt="TheApexDev Office" 
-                  className="w-full h-auto"
-                />
               </div>
             </motion.div>
           </div>
