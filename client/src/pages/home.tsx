@@ -7,6 +7,7 @@ import ServiceCard from "@/components/service-card";
 import ProjectCard from "@/components/project-card";
 import TestimonialCard from "@/components/testimonial-card";
 import { Separator } from "@/components/ui/separator";
+import { RotatingObject3D } from "@/components/RotatingObject3D";
 
 export function Home() {
   // Variants for staggered animations
@@ -76,12 +77,15 @@ export function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {/* Futuristic 3D workspace visualization */}
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500" 
-                alt="Futuristic Web Development Visualization" 
-                className="rounded-2xl shadow-2xl shadow-primary/20 max-w-md"
-              />
+              {/* 3D Rotating Moon */}
+              <div className="w-full h-[400px] md:h-[500px] rounded-2xl shadow-2xl shadow-primary/20 overflow-hidden relative">
+                <RotatingObject3D 
+                  type="planet" 
+                  color="#5e3f94" 
+                  size={4}
+                  className="absolute inset-0"
+                />
+              </div>
             </motion.div>
           </div>
           
