@@ -13,6 +13,7 @@ import { DynamicNavbar } from "@/components/DynamicNavbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { AnimatePresence } from "framer-motion";
+import { ServiceDetail } from "@/pages/service-detail";
 
 function Router() {
   const [location] = useLocation();
