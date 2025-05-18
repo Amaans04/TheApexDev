@@ -9,7 +9,7 @@ import { Services } from "@/pages/services";
 import { Projects } from "@/pages/projects";
 import { About } from "@/pages/about";
 import { Contact } from "@/pages/contact";
-import { Navbar } from "@/components/Navbar";
+import { DynamicNavbar } from "@/components/DynamicNavbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { AnimatePresence } from "framer-motion";
@@ -18,19 +18,21 @@ function Router() {
   const [location] = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Navbar />
-      <Switch location={location} key={location}>
-        <Route path="/" component={Home} />
-        <Route path="/services" component={Services} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route component={NotFound} />
-      </Switch>
+    <>
+      <DynamicNavbar />
+      <AnimatePresence mode="wait">
+        <Switch location={location} key={location}>
+          <Route path="/" component={Home} />
+          <Route path="/services" component={Services} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
+        </Switch>
+      </AnimatePresence>
       <Footer />
       <WhatsAppButton />
-    </AnimatePresence>
+    </>
   );
 }
 
