@@ -18,6 +18,10 @@ import { ServiceDetail } from "@/pages/service-detail";
 function Router() {
   const [location] = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <>
       <DynamicNavbar />
