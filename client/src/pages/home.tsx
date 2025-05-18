@@ -33,7 +33,7 @@ export function Home() {
   return (
     <>
       {/* Hero Section - Simplified, Text-only Design */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
+      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-20">
         <div className="container mx-auto px-6 py-12 relative z-10">
           <motion.div
             className="max-w-5xl mx-auto text-center"
@@ -131,7 +131,7 @@ export function Home() {
         </div>
         
         <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-5 md:bottom-16 left-1/2 transform -translate-x-1/2 mt-32"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
