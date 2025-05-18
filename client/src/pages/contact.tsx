@@ -222,7 +222,7 @@ export function Contact() {
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                      {contactIcons.email}
+                      <i className="fas fa-envelope"></i>
                     </div>
                     <div>
                       <h4 className="font-poppins font-semibold mb-1">Email</h4>
@@ -232,7 +232,7 @@ export function Contact() {
                   
                   <div className="flex items-start">
                     <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                      {contactIcons.phone}
+                      <i className="fas fa-phone"></i>
                     </div>
                     <div>
                       <h4 className="font-poppins font-semibold mb-1">Phone</h4>
@@ -242,7 +242,7 @@ export function Contact() {
                   
                   <div className="flex items-start">
                     <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                      {contactIcons.location}
+                      <i className="fas fa-map-marker-alt"></i>
                     </div>
                     <div>
                       <h4 className="font-poppins font-semibold mb-1">Location</h4>
