@@ -77,14 +77,75 @@ export function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {/* 3D Rotating Moon */}
-              <div className="w-full h-[400px] md:h-[500px] rounded-2xl shadow-2xl shadow-primary/20 overflow-hidden relative">
-                <RotatingObject3D 
-                  type="planet" 
-                  color="#5e3f94" 
-                  size={4}
-                  className="absolute inset-0"
+              {/* Logo Display Area with Animations */}
+              <div className="w-full h-[400px] md:h-[500px] rounded-2xl shadow-2xl shadow-primary/20 overflow-hidden relative bg-gradient-to-br from-[#10002b] via-[#240046] to-[#3c096c] flex flex-col items-center justify-center">
+                {/* Animated stars in background */}
+                <div className="absolute inset-0 overflow-hidden">
+                  {Array.from({ length: 50 }).map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1 h-1 rounded-full bg-white"
+                      style={{
+                        top: `${Math.random() * 100}%`,
+                        left: `${Math.random() * 100}%`,
+                        opacity: Math.random() * 0.7 + 0.3,
+                      }}
+                      animate={{
+                        opacity: [0.3, 0.8, 0.3],
+                        scale: [1, 1.2, 1],
+                      }}
+                      transition={{
+                        duration: 2 + Math.random() * 3,
+                        repeat: Infinity,
+                        delay: Math.random() * 2,
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                {/* Glowing circles */}
+                <motion.div 
+                  className="absolute w-64 h-64 rounded-full bg-violet-500/20 blur-3xl"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.4, 0.3] 
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity,
+                    ease: "easeInOut" 
+                  }}
                 />
+                
+                {/* Logo with animation */}
+                <motion.div 
+                  className="scale-[2.5] mb-8 relative z-10"
+                  initial={{ scale: 2 }}
+                  animate={{ 
+                    scale: [2, 2.3, 2],
+                    y: [0, -10, 0]
+                  }}
+                  transition={{ 
+                    duration: 5, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <span className="text-7xl font-outfit font-black">
+                    <span className="bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">TheApex</span>
+                    <span className="text-white">Dev</span>
+                  </span>
+                </motion.div>
+                
+                {/* Tagline with fade-in animation */}
+                <motion.p 
+                  className="text-xl text-violet-200 max-w-sm text-center font-light mt-8 relative z-10"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                >
+                  Crafting premium digital experiences
+                </motion.p>
               </div>
             </motion.div>
           </div>
