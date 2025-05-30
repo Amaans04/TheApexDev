@@ -239,10 +239,10 @@ export function Home() {
             />
             
             <ServiceCard
-              icon={serviceIcons.api}
-              title="API Integration"
-              description="Connect your systems and services with seamless API integrations that enhance functionality and streamline operations."
-              serviceType="api"
+              icon={serviceIcons.logo}
+              title="Logo Design"
+              description="Create a memorable brand identity with custom logo designs that capture your business essence and resonate with your audience."
+              serviceType="logo"
               delay={6}
             />
           </div>

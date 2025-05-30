@@ -25,7 +25,7 @@ export const serviceIcons = {
   responsive: <i className="fas fa-mobile-alt text-2xl" />,
   marketing: <i className="fas fa-bullhorn text-2xl" />,
   support: <i className="fas fa-headset text-2xl" />,
-  api: <i className="fas fa-plug text-2xl" />
+  logo: <i className="fas fa-pencil-ruler text-2xl" />
 };
 
 // Contact page icon utilities

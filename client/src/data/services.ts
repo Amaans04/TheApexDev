@@ -122,17 +122,17 @@ export const services: Service[] = [
     icon: serviceIcons.support
   },
   {
-    type: "api",
-    title: "API Development",
-    description: "Build robust and scalable APIs for your applications.",
+    type: "logo",
+    title: "Logo Design",
+    description: "Create a memorable brand identity with custom logo designs that capture your business essence.",
     features: [
-      "RESTful API Design",
-      "GraphQL Development",
-      "API Documentation",
-      "Authentication & Security",
-      "Performance Optimization",
-      "Integration Support"
+      "Custom Logo Creation",
+      "Multiple Design Concepts",
+      "Brand Color Palette",
+      "Logo Variations",
+      "Vector File Delivery",
+      "Brand Guidelines"
     ],
-    icon: serviceIcons.api
+    icon: serviceIcons.logo
   }
 ];

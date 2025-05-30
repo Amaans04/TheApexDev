@@ -93,20 +93,20 @@ export function Services() {
       ]
     },
     {
-      id: "api",
-      icon: serviceIcons.api,
-      title: "API Integration",
-      shortDesc: "Connect your systems and services with seamless API integrations that enhance functionality and streamline operations.",
-      longDesc: "Our API integration services connect your digital ecosystem, enabling different systems to work together seamlessly. We help businesses integrate with third-party services, develop custom APIs, and create unified workflows that improve efficiency and data consistency across platforms.",
+      id: "logo",
+      icon: serviceIcons.logo,
+      title: "Logo Design",
+      shortDesc: "Create a memorable brand identity with custom logo designs that capture your business essence and resonate with your audience.",
+      longDesc: "Our logo design service helps businesses establish a strong visual identity. We create unique, versatile logos that effectively communicate your brand values and make a lasting impression. Our process involves understanding your brand, creating multiple concepts, and refining the chosen design until it perfectly represents your business.",
       features: [
-        "Third-party API integration",
-        "Custom API development",
-        "RESTful API design",
-        "GraphQL implementation",
-        "API documentation creation",
-        "Security implementation",
-        "Performance optimization",
-        "Monitoring and maintenance"
+        "Custom logo creation",
+        "Multiple design concepts",
+        "Brand color palette",
+        "Logo variations and formats",
+        "Vector file delivery",
+        "Social media optimization",
+        "Brand guidelines",
+        "Unlimited revisions"
       ]
     }
   ];
